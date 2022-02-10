@@ -8,7 +8,7 @@ const ConfigPanel = ({ slides, onDelete, onAdd, testOnChange}) => {
     <div className="config__panel">
         <h1>ConfigPanel</h1>
         <Slides slides={slides} onDelete={onDelete} testOnChange={testOnChange}/>
-        <Button onClick={onAdd}/>
+        <Button text="Add" onClick={onAdd}/>
     </div>
   )
 }

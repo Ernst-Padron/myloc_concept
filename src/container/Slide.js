@@ -3,32 +3,38 @@ import { FaTimes } from "react-icons/fa"
 
 
 const Slide = ({ slide, onDelete, testOnChange}) => {
-  const [format, setFormat] = useState('')
-  const [time, setTime] = useState('')
-  const [link, setLink] = useState('')
-  const [schema, setSchema] = useState('')
-  const [file, setFile] = useState('')
+  const [format, setFormat] = useState(slide.format)
+  const [time, setTime] = useState(slide.time)
+  const [url, setLink] = useState(slide.url)
+  const [schema, setSchema] = useState(slide.schema)
+  const [file, setFile] = useState(slide.file)
+
+  const id = slide.id
   
-  /* Ska tas bort */
   const submitBtn = (e) => {
     e.preventDefault()
+    const updatedSlide = {id, format, time, url, schema, file}
+    //console.log(updatedSlide)
+    
+    testOnChange(slide.id ,updatedSlide)
+    
   }
 
   
   return (
-    <div className="slide" onChange={() => testOnChange(slide.id ,link)}>
-      <h3>Type: {slide.type}</h3>
-      <p>Time: {slide.time} , Id: {slide.id} </p>
+    <div className="slide">
+      <h3>Type: {format}</h3>
+      <p>Time: {time} , Id: {id} </p>
       <FaTimes onClick={() => onDelete(slide.id)} />
       
-      <form>
+      <form onSubmit={submitBtn}>
         {/* Format */}
         <label>Slide format </label>
         <select name="format" id="format" 
           value={format} 
           onChange={(e) => setFormat(e.target.value)}>
             <option value="">Select</option>
-            <option value="link">link</option>
+            <option value="url">link</option>
             <option value="schema">schema</option>
             <option value="file">file</option>
         </select>
@@ -57,14 +63,14 @@ const Slide = ({ slide, onDelete, testOnChange}) => {
         </div> : ''}
 
         {/* if selected link */}
-        {format === "link" ? <div>
+        {format === "url" ? <div>
             <label>Enter URL </label>
-            <input type="url" value={link} 
+            <input type="url" value={url} 
               onChange={(e) => setLink(e.target.value)} />
         </div> : ''}  
 
         {/* Ska tas bort */}
-        {/* <input type="submit" value='Save Task' className="btn btn-block" /> */}
+        <input type="submit" value='Update slide' className="btn btn-block" />
 
       </form>
       

@@ -88,3 +88,9 @@ code {
   cursor: pointer;
   user-select: none;
 }
+
+/* Temp */
+.down {
+  position: absolute;
+  bottom: 2pc;
+}

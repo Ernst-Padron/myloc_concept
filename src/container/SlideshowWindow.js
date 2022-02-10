@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { SliderData } from "./SliderData"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
+import Button from "./Button"
 
-const SlideshowWindow = ({ slides, slidesShow }) => {
+const SlideshowWindow = ({ slides }) => {
   
   const [current, setCurrent] = useState(0)
-  const length = slidesShow.length
+  const length = slides.length
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1)
@@ -15,8 +15,11 @@ const SlideshowWindow = ({ slides, slidesShow }) => {
     setCurrent(current === 0 ? length - 1 : current - 1)
   }
 
+  const autoPlay = () => {
+    console.log("Play");
+  }
 
-  if(!Array.isArray(slidesShow) || slidesShow.length <= 0) {
+  if(!Array.isArray(slides) || slides.length <= 0) {
     return null
   }
   
@@ -25,13 +28,19 @@ const SlideshowWindow = ({ slides, slidesShow }) => {
         <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide}/>
         <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
 
-        {SliderData.map((slide, index) => {
+        {slides.map((slide, index) => {
           return (
             <div className={index === current ? 'slide-active' : 'slide'} key={index}>
-              {index === current && (<img src={slide.image} alt="Tavel" className="image"/>)}
+              {index === current && (<img src={slide.url} alt="Tavel" className="image"/>)}
             </div>
           )
         })}
+        {/* temp */}
+        <div className="down">
+          <Button text="Play" onClick={autoPlay} />
+        </div>
+        
+
 
     </div>
   )
