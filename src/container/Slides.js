@@ -4,11 +4,11 @@ const Slides = ({ slides, onDelete, testOnChange }) => {
 
   return (
     <>
+    {/* Iterating over slides */}
       {slides.map((slide) => ( 
         <Slide key={slide.id} slide={slide} onDelete={onDelete} testOnChange={testOnChange} />
-       //<h2 key={slide.id}>{slide.type}</h2>
       ))}
-
+      
     </>
   )
 }

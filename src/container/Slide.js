@@ -11,11 +11,10 @@ const Slide = ({ slide, onDelete, testOnChange}) => {
 
   const id = slide.id
   
+  /* Stopping reload and updating slides */
   const submitBtn = (e) => {
     e.preventDefault()
     const updatedSlide = {id, format, time, url, schema, file}
-    //console.log(updatedSlide)
-    
     testOnChange(slide.id ,updatedSlide)
     
   }
@@ -39,13 +38,14 @@ const Slide = ({ slide, onDelete, testOnChange}) => {
             <option value="file">file</option>
         </select>
 
+        {/* Set time */}
         {format !== "" ? <div>
             <label>Time (s) </label>
             <input 
               type="number" 
               value={time} 
               onChange={(e) => setTime(e.target.value)} 
-              min="0" max="10" />
+              min="0" max="60" />
         </div> : ''}
 
         {/* If selected file */}
@@ -69,7 +69,7 @@ const Slide = ({ slide, onDelete, testOnChange}) => {
               onChange={(e) => setLink(e.target.value)} />
         </div> : ''}  
 
-        {/* Ska tas bort */}
+        {/* Submit button */}
         <input type="submit" value='Update slide' className="btn btn-block" />
 
       </form>

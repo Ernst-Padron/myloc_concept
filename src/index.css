@@ -89,6 +89,17 @@ code {
   user-select: none;
 }
 
+.slide__img {
+  opacity: 0;
+  transition-duration: 0.5s ease;
+}
+
+.slide__img.active {
+  opacity: 1;
+  transition-duration: 0.5s;
+  /* transform: scale(1.08); */
+}
+
 /* Temp */
 .down {
   position: absolute;
