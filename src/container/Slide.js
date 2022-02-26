@@ -51,8 +51,8 @@ const Slide = ({ slide, onDelete, testOnChange}) => {
         {/* If selected file */}
         {format === "file" ? <div>
             <label>File </label>
-            <input type="file" value={file} 
-              onChange={(e) => setFile(e.target.value)} />
+            <input type="file" // value={file.name} jag tror stringafir
+              onChange={(e) => setFile(e.target.files[0]) } />
         </div> : ''}
 
         {/* if selected schema */}

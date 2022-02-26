@@ -88,7 +88,7 @@ const SlideshowWindow = ({ slides }) => {
         
         {/* temp for practical styling */}
         <div className="down">
-          <Button text="Play" onClick={autoPlay} />
+          <Button text="Get JSON" onClick={autoPlay} />
         </div>
         
 
