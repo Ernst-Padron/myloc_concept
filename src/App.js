@@ -52,22 +52,22 @@ const App = () => {
     const emptySlide = { id, type, time }
     setSlides([...slides, emptySlide])
   }
-  
+
   const testChange = (id, changedSlide) => {
     console.log(id, changedSlide);
     setSlides(slides.map((slide) => slide.id === id ? changedSlide : slide))
-  } 
+  }
 
   return (
     <div className="container">
-      <Header />
-      <ConfigPanel 
-        slides={slides} 
-        onDelete={deleteSlide} 
-        onAdd={addSlide} 
+      {/* <Header /> */}
+      <ConfigPanel
+        slides={slides}
+        onDelete={deleteSlide}
+        onAdd={addSlide}
         testOnChange={testChange}
       />
-      <SlideshowWindow slides={slides} />
+      {/* <SlideshowWindow slides={slides} /> */}
     </div>
   );
 }

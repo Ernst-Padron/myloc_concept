@@ -22,9 +22,12 @@ const Slide = ({ slide, onDelete, testOnChange}) => {
   
   return (
     <div className="slide">
-      <h3>Type: {format}</h3>
+      <h2>Type: {format}</h2>
       <p>Time: {time} , Id: {id} </p>
-      <FaTimes onClick={() => onDelete(slide.id)} />
+      <h3>
+        <FaTimes onClick={() => onDelete(slide.id)} />
+      </h3>
+      
       
       <form onSubmit={submitBtn}>
         {/* Format */}

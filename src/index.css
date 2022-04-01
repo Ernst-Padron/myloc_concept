@@ -17,10 +17,16 @@ code {
     monospace;
 }
 
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
 .header {
   background-color: rgb(27, 27, 27);
   color: rgb(255, 255, 255);
   padding-left: 10px;
+  align-self: top;
 }
 
 .btn {
@@ -39,7 +45,11 @@ code {
 
 .config__panel {
   background: rgb(255, 255, 255);
+  height: 1041px;
+  width: 60%;
   text-align: center;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .slides {
@@ -53,10 +63,15 @@ code {
   border-radius: 10px;
 }
 
-.slideshow__window {
+.slide h3 {
   position: relative;
-  height: 100vh;
+  color: red;
+}
+
+.slideshow__window {
   display: flex;
+  width: 80%;
+  align-self: center;
   justify-content: center;
   align-items: center;
 }
@@ -81,7 +96,7 @@ code {
 .left-arrow {
   position: absolute;
   top: 50%;
-  left: 32px;
+  left: 462px;
   font-size: 3rem;
   color: #000;
   z-index: 10;
