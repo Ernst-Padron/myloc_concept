@@ -7,9 +7,6 @@ const SlideshowWindow = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
-  /* -- WIP image sizing --  */
-
-  /* ---------------------- */
 
   /* chancing slides */
   const nextSlide = () => {
@@ -29,13 +26,20 @@ const SlideshowWindow = ({ slides }) => {
   })
 
   useEffect(() => {
+    if (length === 0 || slides === null) {
+      return () => null;
+    } 
+    
     const play = () => {
       autoPlayRef.current()
     }
     // console.log("time intervals: " + slides[current].time + "s");
-    const intervals = setInterval(play, 1000 * slides[current].time)
+    
+    const currentSlideTime = slides[current].time;
+    // console.log("time intervals: " + currentSlideTime + "s");
+    const intervals = setInterval(play, 1000 * currentSlideTime)
     return () => clearInterval(intervals)
-  }, [slides[current].time])
+  }, [slides[current]]) // slides[current].time
 
   const autoPlay = () => {
     console.log(slides);
@@ -53,32 +57,33 @@ const SlideshowWindow = ({ slides }) => {
       <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
 
       {slides.map((slide, index) => {
-        const img = new Image();
-        const imageUrl = slide.url
-        img.src = imageUrl;
-
-        /* img.onload = () => {
-          console.log("image Id " + index + " dim: H = " + img.height + " W = " + img.width);
-        }; */
-
-        // bad scaling 
-        const imgK = img.width > img.height ? (1920 / img.width) : (1080 / img.height);
-        const imgW = imgK * img.width > (window.innerWidth - 0) ? window.innerWidth / (imgK * img.width) * (imgK * img.width) : (imgK * img.width);
-        const imgH = imgK * img.height > (window.innerHeight - 0) ? window.innerHeight / (imgK * img.width) * (imgK * img.width) : (imgK * img.width);
-
-        // console.log("image Id " + index + " dim: H = " + img.height + " W = " + img.width);
-        // console.log("image Id " + index + " dim: H = " + imgH + " W = " + imgW + " K = " + imgK);
+        /* Se vilket format det är */
+        if (index === current) {
+          switch(slide.format) {
+            case "url":
+              /* Vill se om det är en giltig url */
+              break;
+            case "file":
+              /* Obs inte all för laddas upp. Måste se så ingen introng. 
+                Se det olika till låtna formaten 
+              */
+              break;
+            case "schema":
+              /* Jag måste titta nogrant på hur dem har gjort */
+              break;
+            default:
+          }
+          
+        }
 
         return (
-
           <div className={index === current ? 'slide__img active' : 'slide__img'} key={index}>
             {index === current && (
               <img
                 className="image"
-                src={img.src}
+                src={slide.url}
                 style={{
-                  width: imgW * 0.7, // img.width * 0.80
-                  height: imgH * 0.7, // img.height* 0.50
+                  
                 }}
                 alt="Tavel"
               />
@@ -88,9 +93,9 @@ const SlideshowWindow = ({ slides }) => {
       })}
 
       {/* temp for practical styling */}
-      <div className="down">
+      {/* <div className="down">
         <Button text="Get JSON" onClick={autoPlay} />
-      </div>
+      </div> */}
 
 
     </section>
@@ -98,3 +103,4 @@ const SlideshowWindow = ({ slides }) => {
 }
 
 export default SlideshowWindow
+

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "./container/Header";
+import Button from "./container/Button";
 import ConfigPanel from "./container/ConfigPanel";
 import SlideshowWindow from "./container/SlideshowWindow";
 
@@ -67,7 +68,8 @@ const App = () => {
         onAdd={addSlide}
         testOnChange={testChange}
       />
-      {/* <SlideshowWindow slides={slides} /> */}
+      <SlideshowWindow slides={slides} />
+      {/* <Button text="Get Slideshow" /> */}
     </div>
   );
 }
