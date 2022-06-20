@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/myloc_concept/static/css/main.afda3a3b.css",
-    "main.js": "/myloc_concept/static/js/main.15ecb955.js",
-    "static/js/787.5179710d.chunk.js": "/myloc_concept/static/js/787.5179710d.chunk.js",
-    "index.html": "/myloc_concept/index.html",
-    "main.afda3a3b.css.map": "/myloc_concept/static/css/main.afda3a3b.css.map",
-    "main.15ecb955.js.map": "/myloc_concept/static/js/main.15ecb955.js.map",
-    "787.5179710d.chunk.js.map": "/myloc_concept/static/js/787.5179710d.chunk.js.map"
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.3b54ede8.js",
+    "static/js/787.c65b5b83.chunk.js": "/static/js/787.c65b5b83.chunk.js",
+    "index.html": "/index.html",
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.3b54ede8.js.map": "/static/js/main.3b54ede8.js.map",
+    "787.c65b5b83.chunk.js.map": "/static/js/787.c65b5b83.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.afda3a3b.css",
-    "static/js/main.15ecb955.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.3b54ede8.js"
   ]
 }
